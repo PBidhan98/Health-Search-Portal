@@ -1,20 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
-    {% if results|length > 0%}
+    {% if results|length > 0 %}
         {% for result in results.hits.hits %}
             <article class="media content-section">
               <div class="media-body">
                 <h2 class="article-content">{{ result._source.title }}</h2>
-                  <h2 class="article-content"> {{ show }}</h2>
               </div>
             </article>
         {% endfor %}
-    {% endif %}
-     {% if results|length == 0%}
+    {% else %}
         <article class="media content-section">
-              <div class="media-body">
-                  <h2 class="article-content"> {{ show }}</h2>
-              </div>
+            <div class="media-body">
+                <h2 class="article-content">{{ show }}</h2>
+            </div>
         </article>
     {% endif %}
+
 {% endblock content %}
